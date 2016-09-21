@@ -1,0 +1,3 @@
+function isRoomAvailable() {
+  return false;
+}
