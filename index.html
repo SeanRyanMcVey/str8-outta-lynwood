@@ -3,7 +3,7 @@
   </head>
   <body>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-    <script src="PillarMeetingRoomLogin.js"></script>
+    <script src="PillarMeetingRoom.js"></script>
 
     <script>
 
@@ -16,6 +16,8 @@
 
       function handleAuthClick(event) {
         authorizeRoom();
+        var meeting = GetNextMeeting()
+        appendPre(meeting)
     		return false;
     	}
     </script>
