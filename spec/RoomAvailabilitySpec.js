@@ -64,7 +64,7 @@ let sampleInput = {
     expect(get_http_response_code(xhr)).toBe(200);
   });
 
-  it('can detect a 404 http response codes', function () {
+  it('can detect a 404 http response code', function () {
     var xhr = new XMLHttpRequest();
     jasmine.Ajax.requests.mostRecent().respondWith({'status': 404});
     expect(get_http_response_code(xhr)).toBe(404);
