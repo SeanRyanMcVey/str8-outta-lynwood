@@ -56,10 +56,17 @@ let sampleInput = {
     var testInput = JSON.stringify(sampleInput);
     getFreebusyCal(testInput);
     expect(jasmine.Ajax.requests.mostRecent().params).toBe(testInput);
-
   });
 
+  it('can detect a 200 http response code', function () {
+    var xhr = new XMLHttpRequest();
+    jasmine.Ajax.requests.mostRecent().respondWith({'status': 200});
+    expect(get_http_response_code(xhr)).toBe(200);
+  });
 
-
-
+  it('can detect a 404 http response codes', function () {
+    var xhr = new XMLHttpRequest();
+    jasmine.Ajax.requests.mostRecent().respondWith({'status': 404});
+    expect(get_http_response_code(xhr)).toBe(404);
+  });
 });

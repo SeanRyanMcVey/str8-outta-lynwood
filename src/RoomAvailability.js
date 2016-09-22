@@ -8,3 +8,7 @@ function getFreebusyCal(input) {
   xhr.open("POST", "https://www.googleapis.com/calendar/v3/freeBusy");
   xhr.send(input);
 }
+
+function get_http_response_code(xhr) {
+  return xhr.status;
+}
