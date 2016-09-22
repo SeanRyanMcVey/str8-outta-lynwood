@@ -52,13 +52,12 @@ let sampleInput = {
     expect(jasmine.Ajax.requests.mostRecent().method).toBe('POST');
   });
 
-  // it('sends input provided by user', function() {
-  //   var testInput = JSON.stringify(sampleInput);
-  //   getFreebusyCal(testInput);
-  //   console.log(jasmine.Ajax.requests.mostRecent().data());
-  //   expect(jasmine.Ajax.requests.mostRecent().data()).toEqual(testInput);
-  //
-  // });
+  it('sends input provided by user', function() {
+    var testInput = JSON.stringify(sampleInput);
+    getFreebusyCal(testInput);
+    expect(jasmine.Ajax.requests.mostRecent().params).toBe(testInput);
+
+  });
 
 
 
