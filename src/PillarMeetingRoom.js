@@ -37,10 +37,42 @@
 		// 		'scope': SCOPES.join(' '),
 		// 		'immediate': true
 		// 	});
-console.log("1");
+
 			gapi.auth.authorize({client_id: CLIENT_ID, scope: SCOPES.join(''), immediate: true});
-console.log("2");
-			gapi.client.load('calendar', 'v3', loadCalendarApi);
+
+			gapi.client.load('calendar', 'v3').then(function(response) {
+			  // Handle response
+				console.log(response);
+			}, function(reason) {
+			  // Handle error
+				console.log(reason);
+			});
+
+
+			/*gapi.client.load('calendar', 'v3').then(function()
+			{
+					var request = gapi.client.calendar.events.list({
+						'calendarId': 'pillartechnology.com_38373434343233392d353734@resource.calendar.google.com',
+						'timeMin': (new Date()).toISOString(),
+						'showDeleted': false,
+						'singleEvents': true,
+						'maxResults': 1,
+						'orderBy': 'startTime'
+					});
+
+					request.execute(function(resp) {
+					var events = resp.items;
+					if(events.length > 0) {
+						test = events[0].start.dateTime;
+					} else {
+						test = "";
+					}
+					});
+
+			}, function(reason) {
+	  		console.log("error");
+			});*/
+
 			console.log("3");
 	};
 
